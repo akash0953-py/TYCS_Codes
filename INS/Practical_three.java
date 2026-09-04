@@ -37,8 +37,6 @@ import java.util.*;
 
 // Rail Fence KEY = Custom
 
-import java.util.*;
-
 public class Practical_three {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
