@@ -9,6 +9,7 @@ class Block:
     def create_hash(self):
         block_string = f"{self.index}{self.timestamp}{self.data}{self.prior_hash}".encode()
         return hashlib.sha256(block_string).hexdigest()
+    
 class Blockchain:
     def __init__(self):
         self.chain = [self.create_genesis_block()]
