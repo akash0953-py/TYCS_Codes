@@ -1,3 +1,5 @@
+package pr2;
+
 import java.util.Scanner;
 
 public class Practical_two {
