@@ -1,3 +1,5 @@
+package pr3;
+
 import java.util.*;
 
 // Rail Fence  KEY = 2
