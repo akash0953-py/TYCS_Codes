@@ -11,4 +11,3 @@ df=pd.read_csv('Data Science\pr3\iris-id.csv')
 
 dummy = pd.get_dummies(df,columns=['species'],drop_first=False,dummy_na=False)
 print(dummy[['species_setosa','species_versicolor','species_virginica']])
-

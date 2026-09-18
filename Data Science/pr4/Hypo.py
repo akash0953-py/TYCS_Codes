@@ -1,6 +1,19 @@
+import numpy as np
+from scipy import stats
+# Z - TEST :
+z = 1
+# TWO TAILED TEST
+p = 2 * (1 - stats.norm.cdf(abs(z)))
+
+# LEFT TAILED TEST 
+p = stats.norm.cdf(z)
+
+# RIGTH TAILED TEST
+p = 1 - stats.norm.cdf(z)
+
 # 1. From generation to generation, the mean age when smokers first start to smoke varies.
 # However, the standard deviation of that age remains constant of around 2.1 years. A survey of
-# 40 smokers of this generation was done to see if the mean  starting age is at least 19.
+# 40 smokers of this generation was done to see if the mean starting age is at least 19.
 # The sample mean was 18.1 with a sample standard deviation  of 1.3. Do the data  support the
 # claim at the 5% level?
 import numpy as np
@@ -29,17 +42,16 @@ else:
 # is 100p. Twelve costs yield a mean cost of 95p with a standard deviation
 #  of 18p. Do the data  support the claim at the 1% level?
 
-import numpy as np
+import numpy as np 
 from scipy import stats
 
-x = 95
-u = 100
 psd = 20
+u = 100
+x = 95
 n = 12
 a = 0.01
 
-z = round((x - u) / (psd / np.sqrt(n)), 2)
-print("Z value =", z)
+z = round(( x-u) / (psd / np.sqrt(n)),2)
 
 p = 2 * stats.norm.cdf(z)   # Two-tailed test
 print("P value =", p)
@@ -151,6 +163,101 @@ print("Z value =", z)
 
 p = stats.norm.cdf(z)
 print("P value =", p)
+
+if p > a:
+    print("Accept Null Hypothesis")
+else:
+    print("Reject Null Hypothesis")
+
+# practice question 
+# A company claims that the average battery life of its phone is 10 hours. A researcher believes that the actual average battery life is greater than 10 hours.
+
+# A sample of 36 phones has an average battery life of 10.8 hours. The population standard deviation is 2.4 hours.
+
+# Test the claim at the 5% significance level.
+
+import numpy as np
+from scipy import stats
+
+n = 36
+u = 10
+x = 10.8
+psd = 2.4
+a = 0.05
+
+z = round( (x-u)/ (psd / np.sqrt(n)) ,2)
+
+p = 1 - stats.norm.cdf(z)
+
+if p > a:
+    print("Accept Null Hypothesis")
+else:
+    print("Reject Null Hypothesis")
+
+# The average amount of time a student spends on social media is believed to be 3 hours per day, 
+# with a population standard deviation of 0.8 hours. A researcher wants to determine 
+# whether students who use a new productivity app have a different average social-media usage time.
+# A sample of 36 students using the app has a mean usage time of 2.7 hours per day.
+import numpy as np
+from scipy import stats
+
+# h0 is u = 3
+# h1 is u < 3
+psd = 0.8 
+n = 36
+x = 2.7
+u = 3
+a = 0.05
+
+z = round((x-u)/(psd / np.sqrt(n))  ,2)
+p = stats.norm.cdf(z)
+
+if p > a:
+    print("Accept Null Hypothesis")
+else:
+    print("Reject Null Hypothesis")
+
+# The mean lifetime of a particular type of light bulb is 1200 hours. The standard deviation is known to be 100 hours.
+# A manufacturer introduces a new production method and wants to determine whether the new method increases the average lifetime.
+# A sample of 49 bulbs produced using the new method has a mean lifetime of 1235 hours.
+# Test at the 1% significance level.
+
+import numpy as np
+from scipy import stats
+
+# h0 is u = 1200
+# h1 is u > 1200
+u = 1200
+psd = 100
+n = 49
+x = 1235
+a = 0.01
+
+z = round((x-u) / (psd / np.sqrt(n))  ,2)
+p = 1 - stats.norm.cdf(z)
+
+if p > a:
+    print("Accept Null Hypothesis")
+else:
+    print("Reject Null Hypothesis")
+
+# The average amount of time required to complete a certain computer task is 50 seconds, 
+# with a population standard deviation of 8 seconds. A new software tool is introduced, and 
+# a researcher wants to determine whether the new tool changes the average completion time.
+# A sample of 64 users using the new software has a mean completion time of 48 seconds.
+# Test the hypothesis at the 5% significance level
+
+import numpy as np
+from scipy import stats
+
+u = 50
+psd = 8
+n = 64
+x = 48 
+a = 0.05
+
+z = round((x-u) / (psd / np.sqrt(n)) ,2)
+p = 2 * (1 - stats.norm.cdf(abs(z)))
 
 if p > a:
     print("Accept Null Hypothesis")
