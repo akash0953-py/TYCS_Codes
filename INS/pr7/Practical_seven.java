@@ -1,3 +1,4 @@
+package pr7;
 
 // DiffieHellman
 import java.util.Scanner;
