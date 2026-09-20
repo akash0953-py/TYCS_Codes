@@ -1,3 +1,4 @@
+package pr4;
 import java.util.*;
 
 public class Practical_four {
