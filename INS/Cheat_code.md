@@ -42,4 +42,14 @@ for (int i = 0; i < enc.length(); i++) {
 dec += (char) ((enc.charAt(i) - 97) ^ key.charAt(i));
 }
 
+# RAIL FENCE KEY = 2
+
+for (int i = 0; i < pt.length(); i++) {
+if (i % 2 == 0) {
+r1 += pt.charAt(i);
+} else {
+r2 += pt.charAt(i);
+}
+}
+
 #
