@@ -1,7 +1,8 @@
+package pr6;
 import java.math.BigInteger;
 import java.util.Scanner;
 
-public class RSA {
+public class Practical_six {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter p: ");
