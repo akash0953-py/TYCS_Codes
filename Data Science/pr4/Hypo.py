@@ -84,17 +84,14 @@ else:
 import numpy as np
 from scipy import stats
 
-x = 140
 u = 100
 psd = 15
 n = 30
+x = 140
 a = 0.05
 
-z = round((x - u) / (psd / np.sqrt(n)), 2)
-print("Z value =", z)
-
-p = 2 * (1 - stats.norm.cdf(z))
-print("P value =", p)
+z = round((x -u)/(psd / np.sqrt(n)) ,2)
+p = 2 * (1- stats.norm.cdf(abs(z)))
 
 if p > a:
     print("Accept Null Hypothesis")
