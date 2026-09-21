@@ -11,6 +11,19 @@ p = stats.norm.cdf(z)
 # RIGTH TAILED TEST
 p = 1 - stats.norm.cdf(z)
 
+# T - TEST :
+n = 10
+t = 1
+df = n - 1
+# TWO TAILED TEST
+p = 2 * (1 - stats.t.cdf(abs(t), df))
+
+# LEFT TAILED TEST
+p = stats.t.cdf(t, df)
+
+# RIGHT TAILED TEST
+p = 1 - stats.t.cdf(t, df)
+
 # 1. From generation to generation, the mean age when smokers first start to smoke varies.
 # However, the standard deviation of that age remains constant of around 2.1 years. A survey of
 # 40 smokers of this generation was done to see if the mean starting age is at least 19.
@@ -98,9 +111,9 @@ else:
 import numpy as np
 from scipy import stats
 
-x = 4.75
 u = 4.5
-ssd = 2
+x = 4.75
+ssd =2.0
 n = 15
 a = 0.05
 
@@ -225,15 +238,13 @@ else:
 import numpy as np
 from scipy import stats
 
-# h0 is u = 1200
-# h1 is u > 1200
-u = 1200
+u = 1200 
 psd = 100
-n = 49
+n =49
 x = 1235
 a = 0.01
 
-z = round((x-u) / (psd / np.sqrt(n))  ,2)
+z = ((x-u) / (psd / np.sqrt(n))  ,2)
 p = 1 - stats.norm.cdf(z)
 
 if p > a:
@@ -248,15 +259,15 @@ else:
 # Test the hypothesis at the 5% significance level
 
 import numpy as np
-from scipy import stats
+from scipy import stats 
 
 u = 50
 psd = 8
 n = 64
-x = 48 
+x = 48
 a = 0.05
 
-z = round((x-u) / (psd / np.sqrt(n)) ,2)
+z = round((x - u)/ (psd / np.sqrt(n))  ,2)
 p = 2 * (1 - stats.norm.cdf(abs(z)))
 
 if p > a:
