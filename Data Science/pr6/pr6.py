@@ -1,41 +1,30 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import r2_score,mean_squared_error
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.preprocessing import LabelEncoder
 
-# Read dataset
-df = pd.read_csv('Data Science/data/pr6/Housing.csv')
+df = pd.read_csv('Data Science\pr6\Housing.csv')
 
-# Label Encoding
-le = LabelEncoder()
+x = df[['area']]
+y = df[['price']]
 
-df['mainroad'] = le.fit_transform(df['mainroad'])
-df['guestroom'] = le.fit_transform(df['guestroom'])
-df['basement'] = le.fit_transform(df['basement'])
-df['hotwaterheating'] = le.fit_transform(df['hotwaterheating'])
-df['airconditioning'] = le.fit_transform(df['airconditioning'])
-df['prefarea'] = le.fit_transform(df['prefarea'])
-df['furnishingstatus'] = le.fit_transform(df['furnishingstatus'])
-
-# Input and Output
-x = df[['area']].values
-y = df[['price']].values
-
-# Split the dataset
-x_train, x_test, y_train, y_test = train_test_split(
-    x, y, test_size=0.2, random_state=42
-)
+x_trian,x_test,y_train,y_test = train_test_split(x,y,test_size=0.2,random_state=42)
 
 reg = LinearRegression()
-
-reg.fit(x_train, y_train)
+reg.fit(x_trian,y_train)
 
 y_pred = reg.predict(x_test)
 
-score = r2_score(y_test, y_pred)
+mse = mean_squared_error(y_test,y_train)
+r2 = r2_score(y_test,y_train)
 
-print("\nR2 Score:", score)
+house_price = reg.predict([[5000]])
+print(house_price)
 
-mse= mean_squared_error(y_test,y_pred)
-print("Mean Square Error",mse)
+plt.scatter(x_test,y_test)
+plt.plot(x_test,y_pred,color = 'red')
+plt.xlabel("area")
+plt.ylabel('price')
+plt.show()
