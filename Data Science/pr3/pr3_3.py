@@ -4,7 +4,7 @@ df=pd.read_csv('Data Science\pr3\iris-id.csv')
 
 print("ID column with label encodeing")
 le=LabelEncoder()
-df['ID']=le.fit_transform(df['species'])
+df['species']=le.fit_transform(df['species'])
 print(df)
 
 # #Using one hot encoding for species column 
