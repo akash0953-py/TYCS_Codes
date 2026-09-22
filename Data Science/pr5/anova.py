@@ -39,3 +39,43 @@ if p < 0.05:
     print("Reject Null Hypothesis")
 else:
     print("Fail to Reject Null Hypothesis")
+
+# PRACTICE QUESTION 
+# Given the marks of students from 3 different teaching methods, 
+# perform One-Way ANOVA and determine whether there is 
+# a significant difference between the group means.
+
+import numpy as np
+from scipy import stats
+
+A = np.array([85, 90, 88, 92, 87])
+B = np.array([78, 82, 80, 79, 81])
+C = np.array([90, 94, 91, 93, 95])
+
+amean = A.mean()
+bmean = B.mean()
+cmean = C.mean()
+
+n = 5
+k = 3
+N = 15
+
+total_mean = (amean + bmean + cmean)/3
+
+a = (amean - total_mean) ** 2
+b = (bmean - total_mean) ** 2
+c = (cmean - total_mean) ** 2
+
+tsm= n * (a+b+c)
+ssb = tsm/(k-1)
+
+ssw = ( sum((A - amean)**2) + sum((B - bmean)**2) + sum((C - cmean)**2)) / (N-k)
+
+f = ssb/ssw
+p_value = stats.f.sf(f,(k-1),(N-k))
+
+alpha = 0.05
+if p_value > alpha:
+    print('faile to reject null hypo')
+else:
+    print('reject null hypo ')

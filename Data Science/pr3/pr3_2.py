@@ -3,7 +3,7 @@ from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
 
 print('Original Column')
-df = pd.read_csv('Data Science\data\iris-id.csv')
+df = pd.read_csv('Data Science\pr3\iris-id.csv')
 print(df)
 
 

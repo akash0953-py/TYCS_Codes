@@ -59,3 +59,4 @@ expected = np.outer(row_sum,col_sum) / grand_total
 dof  = (observed.shape[0] - 1) * (observed.shape[1] - 1)
 chi2 = sum(((observed - expected) ** 2) / expected)
 p_value = stats.chi2.sf(chi2,dof)
+

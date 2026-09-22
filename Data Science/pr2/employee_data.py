@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Read CSV
-df = pd.read_csv("Data Science/employee.csv")
+df = pd.read_csv("Data Science\pr2\employee.csv")
 
 print("\nOriginal Data")
 print(df)
@@ -22,7 +22,7 @@ print(dropped_df)
 
 # Salary > 40000
 print("\nEmployees with Salary > 40000")
-print(df[df["Salary"] > 40000])
+print(df[df['Salary'] > 40000])
 
 # Marketing employees
 print("\nMarketing Employees")
@@ -50,4 +50,4 @@ print(df[df["Department"] == "HR"].shape[0])
 
 # Highest and Lowest salary designation-wise
 print("\nDesignation Wise Highest and Lowest Salary")
-print(df.groupby("Designation")["Salary"].agg(["max", "min"]))
+print(df.groupby("Designation")["Salary"].agg(["max","min"]))
