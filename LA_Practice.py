@@ -11,6 +11,8 @@
 # for i in range(len(v)):
 #     scalr += a*u[i] + b*v[i]
 
+
+
 # Practical 3
 # import numpy as np
 # r = int(input("Enter no of rows of matrix: "))
@@ -28,6 +30,8 @@
 # print(matrix.T)
 # scalar = 9
 # print(scalar * matrix)
+
+
 
 # Practical 4
 # import numpy as np
@@ -50,19 +54,38 @@
 # print("matrix x matrix")
 # print(np.dot(matrix,matrix1))
 
+
+
 # Practical 5
-import numpy as np
-r = int(input("Enter the no of rows :"))
+# import numpy as np
+# r = int(input("Enter the no of rows :"))
+# matrix = []
+# for i in range(r):
+#     row = list(map(int , input(f"enter the row {i + 1} : ").split()))
+#     matrix.append(row)
+
+# matrix = np.array(matrix)
+
+# a = int(np.linalg.det(matrix))
+# print("determinant :" , a)
+# if a == 0:
+#     print("invalid")
+# else:
+#     print("Inverse : " , np.linalg.inv(matrix))
+
+
+
+# Practical 6 
+import sympy as sp 
+
+r = int(input("enter number of columns : "))
 matrix = []
 for i in range(r):
-    row = list(map(int , input(f"enter the row {i + 1} : ").split()))
+    row = list(map(int , input(f"Enter the row {i + 1} : ").split()))
     matrix.append(row)
 
-matrix = np.array(matrix)
+a = sp.Matrix(matrix)
+rref , pivot_clm = a.rref()
 
-a = int(np.linalg.det(matrix))
-print("determinant :" , a)
-if a == 0:
-    print("invalid")
-else:
-    print("Inverse : " , np.linalg.inv(matrix))
+print("Rref : " , rref)
+
