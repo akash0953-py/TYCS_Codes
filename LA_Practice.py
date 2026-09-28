@@ -1,15 +1,42 @@
+#Practical 1
+# import numpy as np
+# import matplotlib.pyplot as plt
+
+# z1 = complex(3,2)
+# z2 = complex(2,3)
+
+# z_90 = z1 * 1j
+# plt.scatter(z_90.real , z_90.imag)
+# plt.show()
+
+# plt.scatter(z1.real,z1.imag)
+# plt.show()
+
+# numbers = np.array([1+1j, 2+1j, 2+2j, 1+2j])
+
+# # Original
+# plt.scatter(numbers.real, numbers.imag)
+# plt.xlabel("Real")
+# plt.ylabel("Imaginary")
+# plt.title("Original Complex Numbers")
+# plt.grid()
+# plt.show()
+
+
+
 # practical 2 
-# u = list(map(float , input("enter u: ").split()))
-# v = list(map(float , input("Enter v :").split()))
+# import numpy as np
+# u = np.array(list(map(int , input("enter u: ").split())))
+# v = np.array(list(map(int , input("Enter v :").split())))
 # a = 5
 # b = 3
 
 # dot = 0
-# for i in range(len(u)):
-#     dot += u[i] * v[i]
+# scalr = 0
+# dot = np.dot(u,v)
+# scalr = a*u + b*v
 
-# for i in range(len(v)):
-#     scalr += a*u[i] + b*v[i]
+# print( dot , " " ,scalr)
 
 
 
@@ -76,16 +103,49 @@
 
 
 # Practical 6 
-import sympy as sp 
+# import sympy as sp 
 
-r = int(input("enter number of columns : "))
-matrix = []
-for i in range(r):
-    row = list(map(int , input(f"Enter the row {i + 1} : ").split()))
-    matrix.append(row)
+# r = int(input("enter number of columns : "))
+# matrix = []
+# for i in range(r):
+#     row = list(map(int , input(f"Enter the row {i + 1} : ").split()))
+#     matrix.append(row)
 
-a = sp.Matrix(matrix)
-rref , pivot_clm = a.rref()
+# a = sp.Matrix(matrix)
+# rref , pivot_clm = a.rref()
 
-print("Rref : " , rref)
+# print("Rref : " , rref)
 
+
+# Practical 7 
+# import numpy as np
+# def projection(a,b):
+#     result = (np.dot(a,b)/np.dot(b,b)) * b
+#     print("Projection : ",result)
+
+# a = np.array(list(map(int , input("Enter vector a : ").split())))
+# b = np.array(list(map(int , input("Enter vector b : ").split())))
+
+# while True:
+#     choice = int(input("Enter ur choice \n 1.Projection a on b \n Projection b on b \n Exit on 3 \n"))
+#     if choice == 1:
+#         projection(a,b)
+#     elif choice ==2:
+#         projection(b,a)
+#     elif choice == 3:
+#         break
+#     else:
+#         print("Invalid")
+
+# practical 10
+# import numpy as np
+
+# a = int(input("enter scalar a : "))
+# b = int(input("enter scalar b : "))
+
+# u = np.array(list(map(int , input("Enter vctor u :").split())))
+# v = np.array(list(map(int , input("Enter vctor v :").split())))
+
+# linear = a*u + b*v
+# average = (u+v) / 2
+# print(linear)
